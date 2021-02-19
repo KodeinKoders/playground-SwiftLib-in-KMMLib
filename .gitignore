@@ -1,0 +1,16 @@
+# Build
+build/
+
+# Idea
+.idea
+*.iml
+
+# Gradle
+.gradle
+.gradletasknamecache
+
+# OS
+.DS_Store
+
+# XCode
+xcuserdata/

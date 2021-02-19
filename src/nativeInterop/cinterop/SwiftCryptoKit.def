@@ -1,0 +1,11 @@
+package = swift.crypto_kit
+language = Objective-C
+
+headers = SwiftCryptoKit/SwiftCryptoKit-Swift.h
+headerFilter = SwiftCryptoKit/*
+
+staticLibraries = libSwiftCryptoKit.a
+libraryPaths.ios_x64 = SwiftCryptoKit/build/Release-iphonesimulator
+
+linkerOpts = -L/usr/lib/swift
+linkerOpts.ios_x64 = -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/
