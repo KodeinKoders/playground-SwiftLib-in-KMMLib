@@ -12,7 +12,7 @@ This Kotlin/Native for iOS project demonstrates how to use a **Swift static libr
 - The root directory contains a Gradle project that provides a Kotlin/Native wrapper around the Swift static library:
     - The [Gradle build script](https://github.com/SalomonBrys/Demo-SwiftLib-in-KMMLib/blob/main/build.gradle.kts) declares a C-Interop that depends on the Swift static library
     - The [interop def file](https://github.com/SalomonBrys/Demo-SwiftLib-in-KMMLib/blob/main/src/nativeInterop/cinterop/SwiftCryptoKit.def) defines the linker flags that needs to be used when linking with the library:
-        - **`-ios_simulator_version_min=13.0.0` and `-iphoneos_version_min=13.0.0` are needed because Swift interoperability needs iOS 13.0 or newer**.
+        - **`-ios_simulator_version_min 13.0.0` and `-iphoneos_version_min 13.0.0` are needed because Swift interoperability needs iOS 13.0 or newer**.
         - Swift library search path are also needed.
 - The [demo-app directory](https://github.com/SalomonBrys/Demo-SwiftLib-in-KMMLib/tree/main/demo-app) is a very simple KMM project with a shared Kotlin/Multiplatform library, and an iOS app. It demonstrates that the library can be used as a simple dependency in the shared library.
     - Note that the app must target iOS 13.0 or newer.
