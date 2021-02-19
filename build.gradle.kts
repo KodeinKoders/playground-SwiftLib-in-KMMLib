@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "1.4.21"
+    kotlin("multiplatform") version "1.4.30"
 }
 
 group = "org.demo"
@@ -10,21 +10,21 @@ repositories {
 }
 
 kotlin {
-    iosX64("ios") {
+    ios {
+        val platform = when (name) {
+            "iosX64" -> "iphonesimulator"
+            "iosArm64" -> "iphoneos"
+            else -> error("Unsupported target $name")
+        }
         compilations.getByName("main") {
             cinterops.create("SwiftCryptoKit") {
                 val interopTask = tasks[interopProcessingTaskName]
-                interopTask.dependsOn(":SwiftCryptoKit:buildCryptoReleaseIphonesimulator")
-                includeDirs.headerFilterOnly("$rootDir/SwiftCryptoKit/build/Release-iphonesimulator/include")
+                interopTask.dependsOn(":SwiftCryptoKit:buildCrypto${platform.capitalize()}")
+                includeDirs.headerFilterOnly("$rootDir/SwiftCryptoKit/build/Release-$platform/include")
             }
-
         }
     }
     sourceSets {
-        val iosMain by getting {
-
-        }
-
         all {
             languageSettings.useExperimentalAnnotation("kotlin.RequiresOptIn")
         }

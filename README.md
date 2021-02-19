@@ -1,44 +1,22 @@
-# HELP!
+# Swift static library inside a Kotlin/Native lib
 
-This Kotlin/Native for iOS project demonstrates a use case where we need to use a **Swift static library** into a **Kotlin/Native KLib** in order to use it as a dependency in another _Kotlin/Multiplatform Mobile project_.
+This Kotlin/Native for iOS project demonstrates how to use a **Swift static library** into a **Kotlin/Native KLib** in order to use it as a dependency in another _Kotlin/Multiplatform Mobile project_.
 
-At the moment, **IT DOES NOT WORK**, which is why I require your help!
+## Points of interest
 
-
-## State of the project
-
-### What works
-
-- Compilation of the Swift static library with Objective-C bridging
-- C/Interop of the Objective-C generated header to Kotlin/Native
-- Compilation of the Kotlin wrapper
-- Linking of the test executable
-
-### What does NOT work
-
-- Execution of the test executable
-- Use of the library inside a KMM project (the framework compiles, but the app execution fails at startup)
-
-The error, in both cases is:
-
-```
-dyld: Library not loaded: @rpath/libswiftCore.dylib
-  Referenced from: [path-of-the-project]/build/bin/ios/debugTest/test.kexe
-  Reason: image not found
-```
-
-### How to reproduce
-
-Checkout the repository and execute the Gradle task iosTest: `./gradlew iosTest`.
-
-### What I think is going on
-
-Swift 5 stabilized its ABI and the Swift runtime is not included statically at link-time, it is provided by the system.
-However, XCode and its linker (ld64) perform some magic to the executable or framework when it detects Swift objects (as explained by this [very good article](https://milen.me/writings/apple-link-magic-swift-runtime/)).
-
-Kotlin/Native performs no such magic and the generated executable or framework is not configured to find the Swift 5 runtime in the target system.
-I suppose there are some linker flags we could pass to the Kotlin/Native linker to fix that. I have found the flags that make the executable **link** correctly (see the `src/nativeInterop/cinterop/SwiftCryptoKit.def` file), but not **execute**.
-
+- The [SwiftCryptoKit directory](https://github.com/SalomonBrys/Demo-SwiftLib-in-KMMLib/tree/main/SwiftCryptoKit) contains an XCode project that generates a Swift static library:
+    - All its Swift classes and methods are `public` and `@objc` annotated to be accessible from Objective-C & Swift.
+    - An "Objective-C Bridging Header" is configured for Objective-C interoperability.
+    - A "Run Script" build phase is added at the end of the build to export the Swift Objective-C header with the library.
+    - A Gradle build script was added to enable the root Gradle project to compile the library with `xcodebuild`.
+- The root directory contains a Gradle project that provides a Kotlin/Native wrapper around the Swift static library:
+    - The [Gradle build script](https://github.com/SalomonBrys/Demo-SwiftLib-in-KMMLib/blob/main/build.gradle.kts) declares a C-Interop that depends on the Swift static library
+    - The [interop def file](https://github.com/SalomonBrys/Demo-SwiftLib-in-KMMLib/blob/main/src/nativeInterop/cinterop/SwiftCryptoKit.def) defines the linker flags that needs to be used when linking with the library:
+        - **`-ios_simulator_version_min=13.0.0` and `-iphoneos_version_min=13.0.0` are needed because Swift interoperability needs iOS 13.0 or newer**.
+        - Swift library search path are also needed.
+- The [demo-app directory](https://github.com/SalomonBrys/Demo-SwiftLib-in-KMMLib/tree/main/demo-app) is a very simple KMM project with a shared Kotlin/Multiplatform library, and an iOS app. It demonstrates that the library can be used as a simple dependency in the shared library.
+    - Note that the app must target iOS 13.0 or newer.
+    
 
 ## Why, oh why?
 
@@ -48,7 +26,9 @@ Therefore, if we want to use a hardware-optimised implementation of ChaChaPoly, 
 
 While Kotlin/Native does not interface with Swift, both Swift & Kotlin/Native interop really well with Objective-C, so it is rather simple to create a small static library that exposes some Swift-only APIs (such as ChaChaPoly in CryptoKit) to Objective-C and therefore to Kotlin/Native.
 
-What we want to achieve is a Kotlin/Multiplatform Mobile **library** (KLib) named "KMCrypto" that provides an API for some cryptographic algorithm (such as ChaChaPoly) and uses the system's most efficient implementation for each target.
+This demos a potential Kotlin/Multiplatform Mobile **library** (KLib) named "KMCrypto" that provides an API for some cryptographic algorithm (such as ChaChaPoly) and uses the system's most efficient implementation for each target.
 This library would then be used as a dependencies on multiple Kotlin/Multiplatfom Mobile application projects.
+Because it is a demo, only the Kotlin/Native iOS & Swift parts are implemented.
+A real library would need to provide an implementation for Android.
 
 As Apple is releasing more and more features in Swift only, this use case is becoming more and more important.

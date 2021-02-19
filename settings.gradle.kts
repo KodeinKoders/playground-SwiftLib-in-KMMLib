@@ -2,5 +2,6 @@
 rootProject.name = "KMCrypto"
 
 include(
-    ":SwiftCryptoKit"
+    ":SwiftCryptoKit",
+    ":demo-app:shared"
 )
