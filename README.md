@@ -1,11 +1,11 @@
 # Swift static library inside a Kotlin/Native lib
 
-This Kotlin/Native for iOS project demonstrates how to use a **Swift static library** into a **Kotlin/Native KLib** in order to use it as a dependency in another _Kotlin/Multiplatform Mobile project_.
+This Kotlin/Native for iOS project demonstrates how to use a **Swift static library** into a **Kotlin/Native KLib** in order to use it as a dependency in another _Kotlin/Multiplatform Mobile_ project.
 
 ## Points of interest
 
 - The [SwiftCryptoKit directory](https://github.com/SalomonBrys/Demo-SwiftLib-in-KMMLib/tree/main/SwiftCryptoKit) contains an XCode project that generates a Swift static library:
-    - All its Swift classes and methods are `public` and `@objc` annotated to be accessible from Objective-C & Swift.
+    - All its Swift classes and methods are `public` and `@objc` annotated to be accessible from Objective-C & Kotlin.
     - An "Objective-C Bridging Header" is configured for Objective-C interoperability.
     - A "Run Script" build phase is added at the end of the build to export the Swift Objective-C header with the library.
     - A Gradle build script was added to enable the root Gradle project to compile the library with `xcodebuild`.
