@@ -10,6 +10,7 @@ import platform.posix.memcpy
 
 fun ByteArray.toData(offset: Int = 0, length: Int = size - offset): NSData {
     require(offset + length <= size) { "offset + length > size" }
+    if (isEmpty()) return NSData()
     val pinned = pin()
     return NSData.create(pinned.addressOf(offset), length.toULong()) { _, _ -> println("NSData closing!"); pinned.unpin() }
 }
