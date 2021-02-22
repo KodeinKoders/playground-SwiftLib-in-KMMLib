@@ -9,7 +9,7 @@ import platform.Foundation.create
 import platform.posix.memcpy
 
 
-internal fun ByteArray.toData(offset: Int = 0, length: Int = size - offset): NSData {
+internal inline fun ByteArray.toData(offset: Int = 0, length: Int = size - offset): NSData {
     require(offset + length <= size) { "offset + length > size" }
     if (isEmpty()) return NSData()
     val pinned = pin()

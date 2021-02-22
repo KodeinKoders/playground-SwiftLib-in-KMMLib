@@ -17,6 +17,7 @@ This demoes the use of the cryptography algorithm _Chacha20-Poly1305_ that is on
         - **`-ios_simulator_version_min 13.0.0` and `-iphoneos_version_min 13.0.0` are needed because Swift interoperability needs iOS 13.0 or newer**.
         - Swift library search path are also needed.
     - Note that any KMM appplication depending on the library must target iOS 13.0 or newer.
+- You can run `./gradlew publishToMavenLocal` and then have a look at the `~/.m2/repository/org/demo/crypto/` directory to see all the files that would be published.
 
 ## Why, oh why?
 

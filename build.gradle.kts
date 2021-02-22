@@ -1,8 +1,9 @@
 plugins {
     kotlin("multiplatform") version "1.4.30"
+    `maven-publish`
 }
 
-group = "org.demo"
+group = "org.demo.crypto"
 version = "1.0"
 
 repositories {
