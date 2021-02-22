@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F45DC1D025DE601A0066291A /* SwiftCryptoKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DC1CF25DE601A0066291A /* SwiftCryptoKit.swift */; };
+		F4537C3E25E265B800CA5138 /* SwiftChachaPoly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DC1CF25DE601A0066291A /* SwiftChachaPoly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,9 +23,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F41B57A225DECBC2002AC4BE /* SwiftCryptoKit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftCryptoKit-Bridging-Header.h"; sourceTree = "<group>"; };
-		F45DC1CC25DE601A0066291A /* libSwiftCryptoKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftCryptoKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F45DC1CF25DE601A0066291A /* SwiftCryptoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCryptoKit.swift; sourceTree = "<group>"; };
+		F41B57A225DECBC2002AC4BE /* SwiftChachaPoly-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftChachaPoly-Bridging-Header.h"; sourceTree = "<group>"; };
+		F45DC1CC25DE601A0066291A /* libSwiftChachaPoly.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwiftChachaPoly.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F45DC1CF25DE601A0066291A /* SwiftChachaPoly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChachaPoly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +42,7 @@
 		F45DC1C325DE601A0066291A = {
 			isa = PBXGroup;
 			children = (
-				F45DC1CE25DE601A0066291A /* SwiftCryptoKit */,
+				F45DC1CE25DE601A0066291A /* SwiftChachaPoly */,
 				F45DC1CD25DE601A0066291A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,26 +50,26 @@
 		F45DC1CD25DE601A0066291A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F45DC1CC25DE601A0066291A /* libSwiftCryptoKit.a */,
+				F45DC1CC25DE601A0066291A /* libSwiftChachaPoly.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F45DC1CE25DE601A0066291A /* SwiftCryptoKit */ = {
+		F45DC1CE25DE601A0066291A /* SwiftChachaPoly */ = {
 			isa = PBXGroup;
 			children = (
-				F45DC1CF25DE601A0066291A /* SwiftCryptoKit.swift */,
-				F41B57A225DECBC2002AC4BE /* SwiftCryptoKit-Bridging-Header.h */,
+				F45DC1CF25DE601A0066291A /* SwiftChachaPoly.swift */,
+				F41B57A225DECBC2002AC4BE /* SwiftChachaPoly-Bridging-Header.h */,
 			);
-			path = SwiftCryptoKit;
+			path = SwiftChachaPoly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F45DC1CB25DE601A0066291A /* SwiftCryptoKit */ = {
+		F45DC1CB25DE601A0066291A /* SwiftChachaPoly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F45DC1D325DE601A0066291A /* Build configuration list for PBXNativeTarget "SwiftCryptoKit" */;
+			buildConfigurationList = F45DC1D325DE601A0066291A /* Build configuration list for PBXNativeTarget "SwiftChachaPoly" */;
 			buildPhases = (
 				F45DC1C825DE601A0066291A /* Sources */,
 				F45DC1C925DE601A0066291A /* Frameworks */,
@@ -80,9 +80,9 @@
 			);
 			dependencies = (
 			);
-			name = SwiftCryptoKit;
+			name = SwiftChachaPoly;
 			productName = SwiftCryptoKit;
-			productReference = F45DC1CC25DE601A0066291A /* libSwiftCryptoKit.a */;
+			productReference = F45DC1CC25DE601A0066291A /* libSwiftChachaPoly.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F45DC1C725DE601A0066291A /* Build configuration list for PBXProject "SwiftCryptoKit" */;
+			buildConfigurationList = F45DC1C725DE601A0066291A /* Build configuration list for PBXProject "SwiftChachaPoly" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F45DC1CB25DE601A0066291A /* SwiftCryptoKit */,
+				F45DC1CB25DE601A0066291A /* SwiftChachaPoly */,
 			);
 		};
 /* End PBXProject section */
@@ -143,7 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F45DC1D025DE601A0066291A /* SwiftCryptoKit.swift in Sources */,
+				F4537C3E25E265B800CA5138 /* SwiftChachaPoly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +279,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftCryptoKit/SwiftCryptoKit-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftChachaPoly/SwiftChachaPoly-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -299,7 +299,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftCryptoKit/SwiftCryptoKit-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftChachaPoly/SwiftChachaPoly-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -308,7 +308,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F45DC1C725DE601A0066291A /* Build configuration list for PBXProject "SwiftCryptoKit" */ = {
+		F45DC1C725DE601A0066291A /* Build configuration list for PBXProject "SwiftChachaPoly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F45DC1D125DE601A0066291A /* Debug */,
@@ -317,7 +317,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F45DC1D325DE601A0066291A /* Build configuration list for PBXNativeTarget "SwiftCryptoKit" */ = {
+		F45DC1D325DE601A0066291A /* Build configuration list for PBXNativeTarget "SwiftChachaPoly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F45DC1D425DE601A0066291A /* Debug */,

@@ -1,7 +1,6 @@
 
-rootProject.name = "KMCrypto"
+rootProject.name = "KMChachaPoly"
 
 include(
-    ":SwiftCryptoKit",
-    ":demo-app:shared"
+    ":SwiftChachaPoly"
 )

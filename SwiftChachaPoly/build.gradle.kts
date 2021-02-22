@@ -1,18 +1,18 @@
 listOf("iphoneos", "iphonesimulator").forEach { sdk ->
-    tasks.create<Exec>("buildCrypto${sdk.capitalize()}") {
+    tasks.create<Exec>("build${sdk.capitalize()}") {
         group = "build"
 
         commandLine(
             "xcodebuild",
-            "-project", "SwiftCryptoKit.xcodeproj",
-            "-target", "SwiftCryptoKit",
+            "-project", "SwiftChachaPoly.xcodeproj",
+            "-target", "SwiftChachaPoly",
             "-sdk", sdk
         )
         workingDir(projectDir)
 
         inputs.files(
-            fileTree("$projectDir/SwiftCryptoKit.xcodeproj") { exclude("**/xcuserdata") },
-            fileTree("$projectDir/SwiftCryptoKit")
+            fileTree("$projectDir/SwiftChachaPoly.xcodeproj") { exclude("**/xcuserdata") },
+            fileTree("$projectDir/SwiftChachaPoly")
         )
         outputs.files(
             fileTree("$projectDir/build/Release-${sdk}")
